@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="shortcut icon" href="./download (10).jpeg" type="image/x-icon">
+    <link rel="stylesheet" href="./style.css">
+    <title>Task Management System</title>
+</head>
+<body>
+    <div class="app-container">
+        <header>
+            <h1>Task Management System</h1>
+            <div id="user-section">
+                <div id="logged-out-view">
+                    <button id="login-btn" class="auth-btn">Login</button>
+                    <button id="register-btn" class="auth-btn">Register</button>
+                </div>
+                <div id="logged-in-view" class="hidden">
+                    <span id="user-email"></span>
+                    <button id="logout-btn" class="auth-btn">Logout</button>
+                </div>
+            </div>
+        </header> 
+ 
+        <div id="auth-modal" class="modal hidden">
+            <div class="modal-content">
+                <span class="close-modal">&times;</span>
+                <h2 id="modal-title">Login</h2>
+                <form id="auth-form">
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password:</label>
+                        <input type="password" id="password" required>
+                    </div>
+                    <button type="submit" id="auth-submit-btn">Login</button>
+                    <button id="google-btn" class="auth-submit-btn">Continue with Google</button>
+                </form>
+            </div>
+        </div> 
+        <div id="task-modal" class="modal hidden">
+            <div class="modal-content">
+                <span class="close-modal">&times;</span>
+                <h2 id="task-modal-title">Add New Task</h2>
+                <form id="task-form">
+                    <div class="form-group">
+                        <label for="task-title">Title:</label>
+                        <input type="text" id="task-title" required placeholder="Title">
+                    </div>
+                    <div class="form-group">
+                        <label for="task-description">Description:</label>
+                        <textarea id="task-description" required placeholder="Description"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="task-assignee">Assigned To:</label>
+                        <input type="date" id="task-assignee" required placeholder="date">
+                    </div>
+                    <div class="form-group">
+                        <label>Assignee</label>
+                        <div class="assignee-display">Admin (Default)</div>
+                      </div>
+                    <input type="hidden" id="task-id">
+                    <input type="hidden" id="task-status" value="todo">
+                    <button type="submit" id="task-submit-btn">Add Task</button>
+                </form>
+            </div>
+        </div>
+
+        <main id="app-main" class="hidden">
+            <div class="board-controls">
+                <button id="add-task-btn">+ Add New Task</button>
+            </div>
+            <div class="board">
+                <div class="column" id="todo-column">
+                    <h2 class="column-title">To Do</h2>
+                    <div class="task-list" id="todo-tasks"></div>
+                </div>
+                <div class="column" id="progress-column">
+                    <h2 class="column-title">In Progress</h2>
+                    <div class="task-list" id="progress-tasks"></div>
+                </div>
+                <div class="column" id="done-column">
+                    <h2 class="column-title">Done</h2>
+                    <div class="task-list" id="done-tasks"></div>
+                </div>
+            </div>
+        </main>
+    </div>
+    
+        <script src="https://www.gstatic.com/firebasejs/11.6.1/firebase-app-compat.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/11.6.1/firebase-auth-compat.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore-compat.js"></script>
+    <script type="module" src="./apps.js"></script>
+    <script type="module" src="./firebase-config.js"></script>
+</body>
+</html>
