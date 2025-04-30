@@ -59,6 +59,7 @@ const closeModalBtns = document.querySelectorAll(".close-modal")
 const todoTasksList = document.getElementById("todo-tasks")
 const progressTasksList = document.getElementById("progress-tasks")
 const doneTasksList = document.getElementById("done-tasks")
+const heroSection = document.querySelector(".hero");
 
 let currentUser = null
 let currentTaskId = null
@@ -90,6 +91,9 @@ auth.onAuthStateChanged((user) => {
       loggedOutView.classList.remove("hidden")
       loggedInView.classList.add("hidden")
       appMain.classList.add("hidden")
+       loggedInView.classList.add("fade-in");
+      heroSection.classList.add("hidden");
+       heroSection.classList.remove("hidden"); 
     }
   })
   
