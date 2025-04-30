@@ -85,7 +85,7 @@ auth.onAuthStateChanged((user) => {
       loggedOutView.classList.add("hidden")
       loggedInView.classList.remove("hidden")
       appMain.classList.remove("hidden")
-      loggedInView.classList.add("fade-in");
+       loggedInView.classList.add("fade-in");
       heroSection.classList.add("hidden");
       loadTasks()
     } else {
